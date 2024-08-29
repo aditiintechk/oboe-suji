@@ -10,6 +10,7 @@ function App() {
 	const [showAnswer, setShowAnswer] = useState(false)
 	const [score, setScore] = useState(0)
 	const [highScore, setHighScore] = useState(0)
+	const [isRevealed, setIsRevealed] = useState(false)
 
 	const [formData, setFormData] = useState({
 		from: '',
@@ -29,6 +30,7 @@ function App() {
 
 	function handleReveal() {
 		setShowAnswer(true)
+		setIsRevealed(true)
 		setScore(0)
 	}
 
@@ -47,6 +49,10 @@ function App() {
 	}
 
 	function handleNumberClick() {
+		if (!isRevealed) {
+			setScore((prevScore) => prevScore + 1)
+		}
+		setIsRevealed(false)
 		setRandomNumber(
 			Math.floor(
 				Math.random() *
@@ -54,7 +60,7 @@ function App() {
 			) + Number(formData.from)
 		)
 		setShowAnswer(false)
-		setScore((prevScore) => prevScore + 1)
+		// setScore((prevScore) => prevScore + 1)
 	}
 
 	return (
