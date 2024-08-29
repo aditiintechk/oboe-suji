@@ -1,50 +1,17 @@
-# React + TypeScript + Vite
+# OboeSuji
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sūji o oboeru (数字を覚える) translates to "memorize numbers" in Japanese, and this app is designed to do just that! Oboe Suji offers an engaging way to learn and master Japanese numbers by turning the learning process into an interactive experience.
 
-Currently, two official plugins are available:
+The app presents you with numbers on the screen, challenging you to recall their readings in romaji, kanji, and hiragana. The answers are hidden at first, but you can reveal them if you're unsure or want to check your answer. To add to the fun, the app features a scoring system that rewards correct guesses with points. Your score will keep increasing as long as you avoid pressing the reveal button.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This classic, gamified approach makes learning Japanese numbers both effective and enjoyable. Share the experience with your friends and take your Japanese number skills to the next level!
 
-## Expanding the ESLint configuration
+## My Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-   React with TypeScript
+-   Tailwind CSS
+-   JSON format to store data
 
-- Configure the top-level `parserOptions` property like this:
+## Hop on to enjoy the experience by clicking on the site link below
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+OboeSuji Web App: [https://oboesuji.netlify.app/](https://oboesuji.netlify.app/)
