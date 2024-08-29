@@ -27,6 +27,7 @@ export default function Game({
 	showAnswer: boolean
 	score: number
 }) {
+	// Get current Number and it's corresponding japanese data from json files
 	function getCurrentObject() {
 		if (randomNumber <= 50000) {
 			return typedDataOne.find(
@@ -39,6 +40,7 @@ export default function Game({
 		}
 	}
 
+	// to avoid getting undefined
 	const currentObject = getCurrentObject()
 
 	return (

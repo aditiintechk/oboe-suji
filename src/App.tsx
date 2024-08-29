@@ -17,6 +17,7 @@ function App() {
 		to: '',
 	})
 
+	// Add useEffect to get high score from local storage
 	useEffect(() => {
 		const storedHighScore = localStorage.getItem('highScore')
 		if (storedHighScore) setHighScore(JSON.parse(storedHighScore))
@@ -35,6 +36,7 @@ function App() {
 	}
 
 	function handleExit() {
+		// Set high score
 		setHighScore((prevHighScore) => {
 			if (score > prevHighScore) {
 				const newHighScore = score
@@ -49,6 +51,7 @@ function App() {
 	}
 
 	function handleNumberClick() {
+		// If reveal button not clicked, increase the score by 1
 		if (!isRevealed) {
 			setScore((prevScore) => prevScore + 1)
 		}
@@ -60,7 +63,6 @@ function App() {
 			) + Number(formData.from)
 		)
 		setShowAnswer(false)
-		// setScore((prevScore) => prevScore + 1)
 	}
 
 	return (
