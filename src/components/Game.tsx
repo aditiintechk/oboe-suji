@@ -1,5 +1,6 @@
 import { MouseEventHandler } from 'react'
 import dataOne from '../json/dataOne.json'
+import dataTwo from '../json/dataTwo.json'
 
 export default function Game({
 	randomNumber,
@@ -15,17 +16,21 @@ export default function Game({
 	score: number
 }) {
 	function getCurrentObject() {
-		return dataOne.find(
-			(obj: { number: number }) => Number(randomNumber) === obj.number
-		)
+		if (randomNumber <= 50000) {
+			return dataOne.find(
+				(obj: { number: number }) => Number(randomNumber) === obj.number
+			)
+		} else {
+			return dataTwo.find(
+				(obj: { number: number }) => Number(randomNumber) === obj.number
+			)
+		}
 	}
 
-	const textLength: string =
-		randomNumber.toString().length < 5 ? 'text-8xl' : 'text-6xl'
 	return (
 		<div className='text-center my-20'>
 			<p
-				className={`${textLength} cursor-pointer select-none`}
+				className={`text-7xl cursor-pointer select-none`}
 				onClick={handleNumberClick}
 			>
 				{randomNumber}
