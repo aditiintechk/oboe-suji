@@ -44,7 +44,7 @@ export default function Game({
 	return (
 		<div className='text-center my-20'>
 			<p
-				className={`text-7xl cursor-pointer select-none`}
+				className={`text-8xl cursor-pointer select-none`}
 				onClick={handleNumberClick}
 			>
 				{randomNumber}
@@ -71,7 +71,8 @@ export default function Game({
 			) : (
 				<button
 					type='button'
-					className='text-sm mx-auto mt-7 border border-black rounded px-7 py-1 bg-black text-white transition-colors duration-200 hover:bg-white hover:text-black'
+					className='text-md mx-auto mt-7 border border-black rounded px-7 py-1 bg-black text-white trans
+					ition-colors duration-200 hover:bg-white hover:text-black'
 					onClick={handleReveal}
 				>
 					REVEAL

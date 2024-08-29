@@ -42,7 +42,7 @@ function App() {
 	}
 
 	return (
-		<div className='max-w-sm mx-auto py-4'>
+		<div className='max-w-sm mx-auto py-4 text-lg'>
 			<Header />
 			{showGame ? (
 				<Game
