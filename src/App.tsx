@@ -7,6 +7,8 @@ import Game from './components/Game.tsx'
 function App() {
 	const [showGame, setShowGame] = useState(false)
 	const [randomNumber, setRandomNumber] = useState(0)
+	const [showAnswer, setShowAnswer] = useState(false)
+	const [score, setScore] = useState(0)
 
 	const [formData, setFormData] = useState({
 		from: '',
@@ -19,6 +21,11 @@ function App() {
 		setRandomNumber(Number(data.from))
 	}
 
+	function handleShow() {
+		setShowAnswer(true)
+		setScore(0)
+	}
+
 	function handleNumberClick() {
 		setRandomNumber(
 			Math.floor(
@@ -26,15 +33,20 @@ function App() {
 					(Number(formData.to) - Number(formData.from) + 1)
 			) + Number(formData.from)
 		)
+		setShowAnswer(false)
+		setScore((prevScore) => prevScore + 1)
 	}
 
 	return (
-		<div className='max-w-sm mx-auto py-4 border border-black'>
+		<div className='max-w-sm mx-auto py-4'>
 			<Header />
 			{showGame ? (
 				<Game
 					randomNumber={randomNumber}
 					handleNumberClick={handleNumberClick}
+					handleShow={handleShow}
+					showAnswer={showAnswer}
+					score={score}
 				/>
 			) : (
 				<Home handleFormSubmit={handleFormSubmit} />

@@ -1,9 +1,9 @@
-import { MouseEventHandler, useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 export default function Home({
 	handleFormSubmit,
 }: {
-	handleFormSubmit: MouseEventHandler
+	handleFormSubmit: FormEvent
 }) {
 	const [formData, setFormData] = useState({
 		from: '',

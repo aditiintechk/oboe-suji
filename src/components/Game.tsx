@@ -1,18 +1,19 @@
-import { MouseEventHandler, useState } from 'react'
+import { MouseEventHandler } from 'react'
 import dataOne from '../json/dataOne.json'
 
 export default function Game({
 	randomNumber,
 	handleNumberClick,
+	handleShow,
+	showAnswer,
+	score,
 }: {
 	randomNumber: number
 	handleNumberClick: MouseEventHandler
+	handleShow: MouseEventHandler
+	showAnswer: boolean
+	score: number
 }) {
-	const [showAnswer, setShowAnswer] = useState(false)
-	function handleShow() {
-		setShowAnswer(true)
-	}
-
 	function getCurrentObject() {
 		return dataOne.find(
 			(obj: { number: number }) => Number(randomNumber) === obj.number
@@ -57,6 +58,7 @@ export default function Game({
 					REVEAL
 				</button>
 			)}
+			<p className='mt-20 text-lg'>Score: {score}</p>
 		</div>
 	)
 }
