@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header.tsx'
 import Home from './components/Home.tsx'
@@ -9,11 +9,17 @@ function App() {
 	const [randomNumber, setRandomNumber] = useState(0)
 	const [showAnswer, setShowAnswer] = useState(false)
 	const [score, setScore] = useState(0)
+	const [highScore, setHighScore] = useState(0)
 
 	const [formData, setFormData] = useState({
 		from: '',
 		to: '',
 	})
+
+	useEffect(() => {
+		const storedHighScore = localStorage.getItem('highScore')
+		if (storedHighScore) setHighScore(JSON.parse(storedHighScore))
+	}, [])
 
 	function handleFormSubmit(data: { from: string; to: string }) {
 		setFormData(data)
@@ -27,7 +33,17 @@ function App() {
 	}
 
 	function handleExit() {
+		setHighScore((prevHighScore) => {
+			if (score > prevHighScore) {
+				const newHighScore = score
+				localStorage.setItem('highScore', JSON.stringify(newHighScore))
+				return newHighScore
+			} else {
+				return prevHighScore
+			}
+		})
 		setShowGame(false)
+		setScore(0)
 	}
 
 	function handleNumberClick() {
@@ -54,7 +70,10 @@ function App() {
 					score={score}
 				/>
 			) : (
-				<Home handleFormSubmit={handleFormSubmit} />
+				<Home
+					handleFormSubmit={handleFormSubmit}
+					highScore={highScore}
+				/>
 			)}
 		</div>
 	)

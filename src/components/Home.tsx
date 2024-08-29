@@ -7,9 +7,10 @@ interface FormData {
 
 interface HomeProps {
 	handleFormSubmit: (data: FormData) => void
+	highScore: number
 }
 
-export default function Home({ handleFormSubmit }: HomeProps) {
+export default function Home({ handleFormSubmit, highScore }: HomeProps) {
 	const [formData, setFormData] = useState<FormData>({
 		from: '',
 		to: '',
@@ -64,7 +65,7 @@ export default function Home({ handleFormSubmit }: HomeProps) {
 				</button>
 			</form>
 			<p className='mt-12'>
-				High Score: <span>0</span>
+				High Score: <span>{highScore}</span>
 			</p>
 		</div>
 	)
