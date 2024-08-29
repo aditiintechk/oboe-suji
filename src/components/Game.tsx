@@ -1,15 +1,22 @@
 import { MouseEventHandler, useState } from 'react'
+import dataOne from '../json/dataOne.json'
 
 export default function Game({
 	randomNumber,
-	click,
+	handleNumberClick,
 }: {
 	randomNumber: number
-	click: MouseEventHandler
+	handleNumberClick: MouseEventHandler
 }) {
 	const [showAnswer, setShowAnswer] = useState(false)
 	function handleShow() {
 		setShowAnswer(true)
+	}
+
+	function getCurrentObject() {
+		return dataOne.find(
+			(obj: { number: number }) => Number(randomNumber) === obj.number
+		)
 	}
 
 	const textLength: string =
@@ -18,7 +25,7 @@ export default function Game({
 		<div className='text-center my-20'>
 			<p
 				className={`${textLength} cursor-pointer select-none`}
-				onClick={click}
+				onClick={handleNumberClick}
 			>
 				{randomNumber}
 			</p>
@@ -27,18 +34,17 @@ export default function Game({
 					<ul>
 						<li className='mb-4 px-7'>
 							<span className='font-bold block mb-1'>romaji</span>
-							ichi oku kyuu sen ni hyaku kyuu juu hachi man sanzen
-							yon hyaku nana juu roku
+							{getCurrentObject().romaji}
 						</li>
 						<li className='mb-4 px-7'>
 							<span className='font-bold block mb-1'>kanji</span>
-							一億九千二百九十八万三千四百七十六
+							{getCurrentObject().kanji}
 						</li>
 						<li className='mb-4 px-7'>
 							<span className='font-bold block mb-1'>
 								hiragana
 							</span>
-							いちおくきゅうせんにひゃくきゅうじゅうはちまんさんぜんよんひゃくななじゅうろく
+							{getCurrentObject().hiragana}
 						</li>
 					</ul>
 				</div>

@@ -7,19 +7,19 @@ import Game from './components/Game.tsx'
 function App() {
 	const [showGame, setShowGame] = useState(false)
 	const [randomNumber, setRandomNumber] = useState(0)
+
 	const [formData, setFormData] = useState({
 		from: '',
 		to: '',
 	})
+
 	function handleFormSubmit(data: { from: string; to: string }) {
 		setFormData(data)
 		setShowGame(true)
 		setRandomNumber(Number(data.from))
 	}
 
-	function click() {
-		// setRandomNumber(Math.floor(Math.random() * 100))
-		console.log(randomNumber)
+	function handleNumberClick() {
 		setRandomNumber(
 			Math.floor(
 				Math.random() *
@@ -27,11 +27,15 @@ function App() {
 			) + Number(formData.from)
 		)
 	}
+
 	return (
 		<div className='max-w-sm mx-auto py-4 border border-black'>
 			<Header />
 			{showGame ? (
-				<Game randomNumber={randomNumber} click={click} />
+				<Game
+					randomNumber={randomNumber}
+					handleNumberClick={handleNumberClick}
+				/>
 			) : (
 				<Home handleFormSubmit={handleFormSubmit} />
 			)}

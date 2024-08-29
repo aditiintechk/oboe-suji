@@ -29,7 +29,7 @@ export default function Home({
 	return (
 		<div className='text-center my-20'>
 			<h2 className='mb-6 px-2 w-fit border border-white border-b-black mx-auto'>
-				Enter a range (≤ 10k)
+				Enter a range (≤ 100k)
 			</h2>
 			<form onSubmit={handleSubmit}>
 				<input
