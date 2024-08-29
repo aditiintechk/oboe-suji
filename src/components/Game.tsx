@@ -2,6 +2,16 @@ import { MouseEventHandler } from 'react'
 import dataOne from '../json/dataOne.json'
 import dataTwo from '../json/dataTwo.json'
 
+interface DataObject {
+	number: number
+	romaji: string
+	kanji: string
+	hiragana: string
+}
+
+const typedDataOne = dataOne as DataObject[]
+const typedDataTwo = dataTwo as DataObject[]
+
 export default function Game({
 	randomNumber,
 	handleNumberClick,
@@ -19,15 +29,17 @@ export default function Game({
 }) {
 	function getCurrentObject() {
 		if (randomNumber <= 50000) {
-			return dataOne.find(
+			return typedDataOne.find(
 				(obj: { number: number }) => Number(randomNumber) === obj.number
 			)
 		} else {
-			return dataTwo.find(
+			return typedDataTwo.find(
 				(obj: { number: number }) => Number(randomNumber) === obj.number
 			)
 		}
 	}
+
+	const currentObject = getCurrentObject()
 
 	return (
 		<div className='text-center my-20'>
@@ -37,22 +49,22 @@ export default function Game({
 			>
 				{randomNumber}
 			</p>
-			{showAnswer ? (
+			{showAnswer && currentObject ? (
 				<div className='mt-7'>
 					<ul>
 						<li className='mb-4 px-7'>
 							<span className='font-bold block mb-1'>romaji</span>
-							{getCurrentObject().romaji}
+							{currentObject.romaji}
 						</li>
 						<li className='mb-4 px-7'>
 							<span className='font-bold block mb-1'>kanji</span>
-							{getCurrentObject().kanji}
+							{currentObject.kanji}
 						</li>
 						<li className='mb-4 px-7'>
 							<span className='font-bold block mb-1'>
 								hiragana
 							</span>
-							{getCurrentObject().hiragana}
+							{currentObject.hiragana}
 						</li>
 					</ul>
 				</div>

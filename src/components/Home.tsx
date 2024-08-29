@@ -1,11 +1,16 @@
-import { FormEvent, useState } from 'react'
+import { useState } from 'react'
 
-export default function Home({
-	handleFormSubmit,
-}: {
-	handleFormSubmit: FormEvent
-}) {
-	const [formData, setFormData] = useState({
+interface FormData {
+	from: string
+	to: string
+}
+
+interface HomeProps {
+	handleFormSubmit: (data: FormData) => void
+}
+
+export default function Home({ handleFormSubmit }: HomeProps) {
+	const [formData, setFormData] = useState<FormData>({
 		from: '',
 		to: '',
 	})
