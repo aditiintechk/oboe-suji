@@ -1,4 +1,4 @@
-# OboeSuji
+# OboeSūji
 
 Sūji o oboeru (数字を覚える) translates to "memorize numbers" in Japanese, and this app is designed to do just that! Oboe Suji offers an engaging way to learn and master Japanese numbers by turning the learning process into an interactive experience.
 
@@ -14,4 +14,4 @@ This classic, gamified approach makes learning Japanese numbers both effective a
 
 ## Hop on to enjoy the experience by clicking on the site link below
 
-OboeSuji Web App: [https://oboesuji.netlify.app/](https://oboesuji.netlify.app/)
+OboeSūji Web App: [https://oboesuji.netlify.app/](https://oboesuji.netlify.app/)
