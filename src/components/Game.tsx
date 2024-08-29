@@ -5,13 +5,15 @@ import dataTwo from '../json/dataTwo.json'
 export default function Game({
 	randomNumber,
 	handleNumberClick,
-	handleShow,
+	handleReveal,
+	handleExit,
 	showAnswer,
 	score,
 }: {
 	randomNumber: number
 	handleNumberClick: MouseEventHandler
-	handleShow: MouseEventHandler
+	handleReveal: MouseEventHandler
+	handleExit: MouseEventHandler
 	showAnswer: boolean
 	score: number
 }) {
@@ -58,12 +60,23 @@ export default function Game({
 				<button
 					type='button'
 					className='text-sm mx-auto mt-7 border border-black rounded px-7 py-1 bg-black text-white transition-colors duration-200 hover:bg-white hover:text-black'
-					onClick={handleShow}
+					onClick={handleReveal}
 				>
 					REVEAL
 				</button>
 			)}
-			<p className='mt-20 text-lg'>Score: {score}</p>
+			<div className='flex justify-center items-center mt-24 p-4 w-3/4 gap-4 mx-auto'>
+				<p className='text-lg border border-black rounded-md px-4 w-40'>
+					Score: <span className='inline-block w-8'>{score}</span>
+				</p>
+				<button
+					type='button'
+					className='text-sm border border-black rounded px-7 py-1 bg-black text-white transition-colors duration-200 hover:bg-white hover:text-black'
+					onClick={handleExit}
+				>
+					EXIT
+				</button>
+			</div>
 		</div>
 	)
 }

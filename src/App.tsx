@@ -21,9 +21,13 @@ function App() {
 		setRandomNumber(Number(data.from))
 	}
 
-	function handleShow() {
+	function handleReveal() {
 		setShowAnswer(true)
 		setScore(0)
+	}
+
+	function handleExit() {
+		setShowGame(false)
 	}
 
 	function handleNumberClick() {
@@ -44,7 +48,8 @@ function App() {
 				<Game
 					randomNumber={randomNumber}
 					handleNumberClick={handleNumberClick}
-					handleShow={handleShow}
+					handleReveal={handleReveal}
+					handleExit={handleExit}
 					showAnswer={showAnswer}
 					score={score}
 				/>
