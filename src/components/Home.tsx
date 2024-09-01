@@ -8,9 +8,14 @@ interface FormData {
 interface HomeProps {
 	handleFormSubmit: (data: FormData) => void
 	highScore: number
+	handleClear: () => void
 }
 
-export default function Home({ handleFormSubmit, highScore }: HomeProps) {
+export default function Home({
+	handleFormSubmit,
+	highScore,
+	handleClear,
+}: HomeProps) {
 	const [formData, setFormData] = useState<FormData>({
 		from: '',
 		to: '',
@@ -64,9 +69,17 @@ export default function Home({ handleFormSubmit, highScore }: HomeProps) {
 					LET'S GO
 				</button>
 			</form>
-			<p className='mt-12'>
-				High Score: <span>{highScore}</span>
-			</p>
+			<div className='flex justify-center items-center gap-6 mt-12'>
+				<p className='text-lg border border-black rounded-md px-4 w-40'>
+					High Score: <span>{highScore}</span>
+				</p>
+				<button
+					className=' text-sm border border-black rounded px-6 py-1 bg-black text-white transition-colors duration-200 hover:bg-white hover:text-black'
+					onClick={handleClear}
+				>
+					Clear
+				</button>
+			</div>
 		</div>
 	)
 }

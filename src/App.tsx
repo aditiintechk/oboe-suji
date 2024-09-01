@@ -50,6 +50,10 @@ function App() {
 		setScore(0)
 	}
 
+	function handleClear() {
+		setHighScore(0)
+	}
+
 	function handleNumberClick() {
 		// If reveal button not clicked, increase the score by 1
 		if (!isRevealed) {
@@ -81,6 +85,7 @@ function App() {
 				<Home
 					handleFormSubmit={handleFormSubmit}
 					highScore={highScore}
+					handleClear={handleClear}
 				/>
 			)}
 		</div>
