@@ -52,6 +52,7 @@ function App() {
 
 	function handleClear() {
 		setHighScore(0)
+		localStorage.clear()
 	}
 
 	function handleNumberClick() {
